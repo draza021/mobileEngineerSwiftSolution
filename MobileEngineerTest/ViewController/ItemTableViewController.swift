@@ -12,7 +12,6 @@ class ItemTableViewController: UITableViewController {
 
     private var items = [Item]()
     private var activityIndicatorView: UIActivityIndicatorView!
-    private let cellIdentifier = UITableViewCell.reuseIdentifier
     
     
     // MARK: - View Lifecycle
@@ -88,7 +87,6 @@ private extension ItemTableViewController {
         activityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
         tableView.backgroundView = activityIndicatorView
         tableView.backgroundColor = UIColor(cgColor: #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1))
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
         tableView.separatorStyle = .none
         activityIndicatorView.startAnimating()
     }

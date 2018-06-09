@@ -111,7 +111,7 @@ extension ItemTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "ItemDetailViewController") as! ItemDetailViewController
-        vc.populateDetails(items[indexPath.row])
+        vc.populateItem(items[indexPath.row])
         show(vc, sender: self)
     }
     

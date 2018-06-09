@@ -16,11 +16,8 @@ class ItemDetailViewController: UIViewController {
     @IBOutlet weak var itemDescriptionLabel: UILabel!
     
     
-    var itemTitle: String?
-    var itemDescription: String?
-    var imageUrl: String?
+    private var item: Item?
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -32,16 +29,14 @@ class ItemDetailViewController: UIViewController {
 // MARK: - Instance methods
 extension ItemDetailViewController {
     
-    func populateDetails(_ item: Item) {
-        itemTitle = item.title
-        itemDescription = item.description
-        imageUrl = item.image
+    func populateItem(_ item: Item) {
+        self.item = item
     }
     
     private func updateDetailsView() {
-        itemTitleLabel.text = itemTitle
-        itemDescriptionLabel.text = itemDescription
-        if let imageUrl = imageUrl {
+        itemTitleLabel.text = item?.title
+        itemDescriptionLabel.text = item?.description
+        if let imageUrl = item?.image {
             itemImageView.kf.indicatorType = .activity
             itemImageView.kf.setImage(with: URL(string: imageUrl), placeholder: #imageLiteral(resourceName: "placeholder"))
         }

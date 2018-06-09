@@ -15,17 +15,12 @@ class ItemTableViewController: UITableViewController {
     
     
     // MARK: - View Lifecycle
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        fetchData()
-        showActivityIndicator()
-        
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        fetchData()
+        showActivityIndicator()
         setupTableView()
         
     }

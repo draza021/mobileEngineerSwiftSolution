@@ -9,7 +9,7 @@
 import UIKit
 
 class ItemTableViewController: UITableViewController {
-
+    
     private var items = [Item]()
     private var activityIndicatorView: UIActivityIndicatorView!
     
@@ -18,7 +18,7 @@ class ItemTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         fetchData()
         showActivityIndicator()
         setupTableView()
@@ -48,12 +48,12 @@ private extension ItemTableViewController {
         let allItemsEndpoint = ItemEndpoint.allItems
         
         itemClient.fetchItems(with: allItemsEndpoint) { [weak self] result in
+            self?.hideActivityIndicator()
             switch result {
             case .error(let error):
                 self?.showAlert(error)
             case .success(let value):
                 self?.populateTableView(with: value)
-                self?.hideActivityIndicator()
             }
         }
     }
